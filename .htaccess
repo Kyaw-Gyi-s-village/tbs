@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteBase /tbs.git/
+
+
+RewriteRule ^pg_admin/(\w+)/(\w+)/(\w+)?$ pg_admin/admin_mvc.php?controller=$1&action=$2&id=$3 [L,QSA]
+RewriteRule ^pg_admin/(\w+)/(\w+)/?$ pg_admin/admin_mvc.php?controller=$1&action=$2 [L,QSA]
+RewriteRule ^pg_admin/(\w+)/?$ pg_admin/admin_mvc.php?controller=$1 [L,QSA]
+RewriteRule ^pg_admin/?$ pg_admin/admin_mvc.php?controller=category [L]
+
+RewriteRule ^(\w+)/(\w+)/(\w+)/?$ user_mvc.php?controller=$1&action=$2&id=$3 [L,QSA]
+RewriteRule ^(\w+)/(\w+)/?$ user_mvc.php?controller=$1&action=$2 [L,QSA]
+RewriteRule ^(\w+)/?$ user_mvc.php?controller=$1 [L,QSA]
+RewriteRule ^/?$ user_mvc.php?controller=item [L,QSA]
