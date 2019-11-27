@@ -12,9 +12,9 @@
 			  <th>Remark</th>
 			  <th>Delete</th>
 			</tr>
-		</thead>	
+		</thead>
 		<tbody>
-			<?php 
+			<?php
 			  $total = 0; $total_price=0; $count=0;
 			  foreach($_SESSION['cart'] as $id => $qty):
 				$item = get_one_item($id);
@@ -45,15 +45,15 @@
 				  </td>
 				  <td>
 				  	<span class="hk-total-price-js hk-total-price-js<?php echo $count++?>">
-				  		<?php 
-					  		echo number_format(($item['price']*(100-$item['discount_percent'])/100)*$qty); 
+				  		<?php
+					  		echo number_format(($item['price']*(100-$item['discount_percent'])/100)*$qty);
 					  		$total_price+=(($item['price']*(100-$item['discount_percent'])/100)*$qty)
-					  	?>	  		
+					  	?>
 				  	</span>Ks
 				  </td>
 				  <td>
 				    <?php
-					  $remarkstr=""; 
+					  $remarkstr="";
 					  if(isset($_SESSION['remark']))
 					  {
 						foreach($_SESSION['remark'] as $remark_id => $remark)
@@ -62,7 +62,7 @@
 							$remarkstr = $remark;
 						}
 					  }
-				    ?>		
+				    ?>
 				    <textarea name="remark" class="hk-remark-txt-js" data-id="<?php echo $item['id'] ?>"><?php if($remarkstr!="") echo $remarkstr; ?></textarea>
 				  </td>
 				  <td>
@@ -83,16 +83,16 @@
 <section class="cart-form-container">
 	<h3 id="cart-form-header">Your Informations</h3>
   <form action="<?php echo $url ?>/order/submit_from_cart/" method="post" class="cart-form">
-  		
+
   	<input type="text" name="name" class="cart-form-input" placeholder="Name" required="required">
   		<span class="cart-form-border"></span>
-  		
-  	<input type="number" name="phone" class="cart-form-input" placeholder="Phone number" required="required">
+
+  	<input type="number" name="phone" class="cart-form-input" placeholder="Phone" required="required">
   		<span class="cart-form-border"></span>
-  		
+
   	<textarea class="cart-form-tarea cart-form-input" name="address" placeholder="Address" required="required"></textarea>
   		<span class="cart-form-border"></span>
-  			
+
   	<textarea class="cart-form-tarea cart-form-input" name="remark" placeholder="Remark"></textarea>
   		<span class="cart-form-border"></span>
 
