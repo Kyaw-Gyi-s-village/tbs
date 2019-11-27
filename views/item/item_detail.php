@@ -86,7 +86,7 @@
 				  <a href="<?php echo $url ?>/item/detail/<?php echo $item['id'] ?>" class="related-photos">
 						<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $item['item_code'].'_id_'.$item['id'].'_0'.'.jpg'?>" alt="<?php echo $item['item_name'] ?>" style="object-fit: cover">
 						<div class="related-item-info">
-							<span id="related-item-name"><?php echo $data['item_name'] ?></span>
+							<span id="related-item-name">Huawei GR7 2017</span>
 							<span id="related-item-price">Item price</span>
 						</div>
 				  </a>
