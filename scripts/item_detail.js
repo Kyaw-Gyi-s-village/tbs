@@ -166,25 +166,33 @@ $(document).ready(function(){
 	var $slides = $('.related-photos');
 	var $totalSlides = $slides.length;
 
+	if($totalSlides <= 3)
+		$('.related-arrows').css('display', 'none');
+
+
 	$slides.hide();
 	$slides.eq(currentSlide).css('display', 'block');
 	$slides.eq(currentSlide+1).css('display', 'block');
+	$slides.eq(currentSlide+2).css('display', 'block');
 
 	function cycleSlides() {
 		var $slide1 = $('.related-photos').eq(currentSlide);
 		var $slide2 = $('.related-photos').eq(currentSlide+1);
+		var $slide3 = $('.related-photos').eq(currentSlide+2);
 
 		$slides.hide();
 
 		$slide1.css('display', 'block');
 		$slide2.css('display', 'block');
+		$slide3.css('display', 'block');
 
 		$slide1.addClass("slide-animation");
 		$slide2.addClass("slide-animation");
+		$slide3.addClass("slide-animation");
 	}
 
 	$('#related-down').click(function() {
-		currentSlide += 2;
+		currentSlide += 3;
 		if (currentSlide > $totalSlides - 1)
 			currentSlide = 0;
 
@@ -192,9 +200,9 @@ $(document).ready(function(){
 	});
 
 	$('#related-up').click(function() {
-		currentSlide -= 2;
+		currentSlide -= 3;
 		if (currentSlide < 0)
-			currentSlide = $totalSlides - 1;
+			currentSlide = 0;
 
 		cycleSlides();
 	});
