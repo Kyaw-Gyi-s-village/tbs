@@ -496,6 +496,7 @@ body{
       background-color: tomato;
       border: 1px solid #555;
       box-shadow: 3px 3px 4px #999;
+      transition: .1s;
     }
 
     #wp-overlay-buy input:hover{
