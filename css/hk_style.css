@@ -482,21 +482,25 @@ body{
       opacity: 1;
     }
     .wp-item-photo{
-      font-size: 14px;
-      font-weight: bold;
-      position: absolute;
-      top: 9em;
-      width: 90%;
-      color: #000;
-      text-align: center;
-      margin: 0 5%;
-      padding: 5px 0;
-      background: rgb(0, 0, 0);
-      background: rgba(0, 0, 0, 0.5); /* Black see-through */
-      color: #FFF;
-      opacity: 0;
-      transition: opacity .5s ease;
-    }
+        font-size: 18px;
+        font-weight: bold;
+        display: flex;
+        position: absolute;
+        justify-content: center;
+        align-items: flex-end;
+        width: 90%;
+        height: 1em;
+        transform: translateY(-58px);
+        margin: 0 5%;
+        color: #000;
+        text-align: center;
+        padding: 5px 0;
+        background: rgb(0, 0, 0);
+        background: rgba(0, 0, 0, 0.5); /* Black see-through */
+        color: #FFF;
+        opacity: 0;
+        transition: opacity .5s ease;
+      }
     .wp-discount{
       text-align: center;
       box-shadow: 3px 3px 5px #333;
@@ -528,7 +532,7 @@ body{
     .wp-item-code{
       font-size: 12px;
     }
-    .wp-item-unit-price, #wp-dialog-item-unit-price{
+    .wp-item-unit-price{
       font-size: 16px;
       color: tomato;
       font-weight: bold;
@@ -889,9 +893,11 @@ body{
     margin: 15% 15%;
   }
   .wp-item-photo{
+    font-size: 20px;
     width: 70%;
+    height: 1.2em;
+    transform: translateY(-65px);
     margin: 0 15%;
-    top: 8.7em;
   }
   .wp-item-detail{
     padding-left: 10%;
@@ -984,9 +990,11 @@ body{
     width: 29%;
   }
   .wp-item-photo{
-    width: 76%;
-    margin: 0 12%;
-    top: 10em;
+    font-size: 18px;
+    width: 74%;
+    height: 1.2em;
+    transform: translateY(-63px);
+    margin: 0 13%;
   }
   .wp-item-box img{
     width: 74%;
