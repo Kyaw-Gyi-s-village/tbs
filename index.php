@@ -132,8 +132,8 @@
         <div class="wp-overlay-item">
           <img src="" id="wp-overlay-item-photo">
           <div class="wp-overlay-item-detail">
-            <div id="wp-dialog-item-name">Item Name Item</div>
-            <div><span id="wp-dialog-item-unit-price">Price</span>&nbsp; Ks</div>
+            <div id="wp-dialog-item-name">Item Name</div>
+            <div><span id="wp-dialog-item-unit-price">Price</span>&nbsp;<span id="kyat">Ks</span></div>
             <div class="quantity" id="button">
               <input type="button" value="-" class="minus">
               <input type="number" step="1" min="1" max="1000" name="qty" value="1" class="input-text qty" id="quan">
@@ -143,6 +143,7 @@
         </div>
 
         <div class="wp-overlay-form" >
+          <div class="wp-overlay-form-details">
             <input type="hidden" id="hk-id-js" name="id">
             <table>
               <tr>
@@ -163,6 +164,7 @@
               </tr>
             </table>
             <div id="wp-overlay-buy"><input type="submit" value="Buy"></div>
+        </div>
         </div>
       </form>
     </div>
