@@ -719,11 +719,6 @@ body{
       .wp-item-code{
         font-size: 12px;
       }
-      .wp-item-unit-price{
-        font-size: 16px;
-        color: tomato;
-        font-weight: bold;
-      }
       .wp-item-discount-price{
         display: block;
         font-size: 14px;
@@ -2636,7 +2631,7 @@ body{
     }
 
     #kyat{
-      font-size: 18px;
+      font-size: 16px;
     }
 
     .wp-overlay-form{
