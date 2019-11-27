@@ -1,3 +1,4 @@
+<section class="detail-about-items">
 <section class="wp-detail-photos"><!-- show item photos -->
 	<div class="wp-zoom" style="background-image: url(<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $data['item_code'].'_id_'.$data['id'].'_0'.'.jpg'?>)">
 		<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $data['item_code'].'_id_'.$data['id'].'_0'.'.jpg'?>" alt="<?php echo $data['item_name']?>" id="wp-default-photo" style="object-fit: cover">
@@ -32,16 +33,16 @@
 			<td id="wp-detail-item-unit-price" class="wp-detail-form-right" data-prc="<?php echo $data['price']*(100-$data['discount_percent'])/100?>">
 			  <?php if($data['discount_percent']==0): ?>
 					<span>
-					  <?php echo $data['price'] ?>Ks
+					  <?php echo $data['price'] ?>&nbsp;Ks
 					</span>
 			  <?php else: ?>
-					<span><?php echo $data['price']*(100-$data['discount_percent'])/100?>Ks</span>
-					<span id="wp-discount-price"><?php echo $data['price'] ?>Ks</span>
+					<span><?php echo $data['price']*(100-$data['discount_percent'])/100?>&nbsp;Ks</span>
+					<span id="wp-discount-price"><?php echo $data['price'] ?>&nbsp;Ks</span>
 			  <?php endif; ?>
 			</td>
 	  </tr>
 	  <tr>
-	    <td class="wp-detail-form-left">Quantity</td>
+	    <td class="wp-detail-form-left">Quantity:</td>
 			<td class="wp-detail-form-right">
 				<div class="quantity" id="button">
 					<input type="button" value="-" class="minus">
@@ -52,7 +53,7 @@
 	  </tr>
 	  <tr>
 			<td class="wp-detail-form-left">Total price:</td>
-			<td id="wp-detail-item-total-price" class="wp-detail-form-right"><span id="hk-amount-js"><?php echo $data['price']*(100-$data['discount_percent'])/100?></span>Ks</td>
+			<td id="wp-detail-item-total-price" class="wp-detail-form-right"><span id="hk-amount-js"><?php echo $data['price']*(100-$data['discount_percent'])/100?></span>&nbsp;Ks</td>
 	  </tr>
 	  <tr>
 			<td class="wp-detail-form-left">Remark:</td>
@@ -67,20 +68,31 @@
 		</button>
 	</div>
   </form>
+</section>
+</section>
 
+<section class="related-bar">
   <?php # the following aside is only show on laptop display ?>
 	<aside class="related-wrap"><!-- To display related items -->
 	  <h2 id="related-name">Related Items</h2>
 	  <section class="related-items">
-	  	<button id="related-up"><i class="far fa-caret-square-up"></i></button>
+	  	<div class="related-arrows">
+	  		<button id="related-up"><i class="far fa-caret-square-left"></i></button>
+	  		<button id="related-down"><i class="far fa-caret-square-right"></i></button>
+	  	</div>
+	  	<div class="related-photo-box">
 	  		<div class="related-photo-border">
 			  <?php $related_item = get_same_cat_items($data['category_id']); foreach($related_item as $item): ?>
 				  <a href="<?php echo $url ?>/item/detail/<?php echo $item['id'] ?>" class="related-photos">
 						<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $item['item_code'].'_id_'.$item['id'].'_0'.'.jpg'?>" alt="<?php echo $item['item_name'] ?>" style="object-fit: cover">
+						<div class="related-item-info">
+							<span id="related-item-name">Item name</span>
+							<span id="related-item-price">Item price</span>
+						</div>
 				  </a>
 				<?php endforeach; ?>
-				</div>
-			<button id="related-down"><i class="far fa-caret-square-down"></i></button>
+			</div>
+		</div>
 		</section>
 	</aside><!-- end of To display related items -->
 
