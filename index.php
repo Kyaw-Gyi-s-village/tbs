@@ -98,15 +98,15 @@
       <div>
         <ul>
           <li class="ft-related-head">About Us</li>
-          <li><a href="https://www.facebook.com/sea.trading.14" target="_black">Facebook</a></li>
-          <li><a href="https://maps.app.goo.gl/EXGDp" target="_black">Location</a></li>
+          <li><a href="https://www.facebook.com/The-Best-Shop-400445550559177/" target="_black">Facebook</a></li>
+          <li><a href="https://goo.gl/maps/A5bviuiCmGTWw7347" target="_black">Location</a></li>
         </ul>
 
         <ul>
           <li class="ft-related-head">Contact Us</li>
           <li><a href="tel:09899950008">09 899950008</a></li>
           <li><a href="tel:09784020212">09 784020212</a></li>
-          <li><a href="mailto:fuwunlu1996@gmail.com">Email</a></li>
+          <li><a href="mailto:customercare@thebestshopmm.com">Email</a></li>
         </ul>
 
         <ul>
@@ -115,10 +115,10 @@
           <li><a href="<?php echo $url ?>/general/delivery/">Yangon</a></li>
         </ul>
       </div>
-      <p>No.104 U Aye 4th St, Hlaing(16)Qtr, Yangon</p>
+      <p>No.34, 8th street Marlarmyine, Hlaing(16)Qtr, Yangon</p>
     </div><!-- end of footer-top -->
     <div class="footer-bottom">
-      &copy;2018 <a href="#"></a>
+      &nbsp;<a href="#"></a>
     </div><!-- end of footer-bottom -->
   </footer><!-- end of all page's main footer -->
 
