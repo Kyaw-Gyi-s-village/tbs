@@ -771,6 +771,7 @@ body{
     font-size: 18px;
     text-align: center;
     color: #555;
+    padding-bottom: 0;
   }
   .cart-form-buy{
     margin-top: 1.5em;
@@ -921,6 +922,47 @@ body{
   .ky-phone-one, .ky-phone-two{
     left: 45%;
   }
+
+  /*for cart form*/
+    .hk-price-container{
+      font-size: 26px;
+      width: 40%;
+      margin: 3% 0 1% 0;
+      padding: 10px;
+    }
+
+    .cart-form-container{
+      width: 40%;
+      padding: 3% 5%;
+      margin-bottom: 5%;
+    }
+
+    .cart-form-input{
+      font-size: 18px;
+      padding: 5px;
+      margin-top: 1.5em;
+      border-bottom: 1px solid #CCC;
+    }
+
+    #cart-form-header{
+      font-size: 26px;
+      padding-bottom: 5px;
+    }
+
+    .cart-form-buy{
+      margin-top: 1.5em;
+      font-size: 16px;
+      letter-spacing: 1px;
+      padding: 8px 0;
+      background-color: #e1e1e1;
+
+    }
+
+    .cart-form-buy:hover{
+      background-color: #036;
+      color: #FFF;
+    }
+      /*end of cart form*/
 }
 
 @media (min-width: 30em) and (max-width: 60em){
@@ -1013,4 +1055,26 @@ body{
   .footer-top ul a{
     font-size: 14px;
   }
+  /*for cart form*/
+    .hk-price-container{
+      font-size: 24px;
+      width: 50%;
+    }
+
+    .cart-form-container{
+      width: 50%;
+      padding: 3% 5%;
+      margin-bottom: 5%;
+    }
+
+    .cart-form-input{
+      font-size: 18px;
+      margin-top: 1.2em;
+    }
+
+    #cart-form-header{
+      font-size: 24px;
+      padding-bottom: 0;
+    }
+      /*end of cart form*/
 }
