@@ -40,11 +40,11 @@ function insert_item($item_name, $item_code, $stock, $price, $discount_percent, 
 		return $names;
 	}
 #delete item photo's name into item_photos
-	function delete_photo($id, $name)
+	function delete_photo($item_id)
 	{
 		global $conn;
-		// $result = $conn->prepare("INSERT INTO item_photos (id, name) VALUES(:id, :name)");
-		// $result->execute(array('id'=>$id, 'name'=>$name));
+		$result = $conn->prepare("DELETE FROM item_photos WHERE item_id=:item_id");
+		$result->execute(array('item_id'=>$item_id));
 	}
 
 #update photo qty by id form item table

@@ -102,7 +102,7 @@
         <textarea id="summary_unicode" name="summary_unicode" required="required"></textarea>
 
         <label for="category_id" id="category-label">Category:</label>
-        <select id="category_id" name="category_id" required>
+        <select id="category_id" name="category_id" required="required">
           <option selected disabled>--SELECT--</option>
           <?php $cats = get_all_cats(); foreach( $cats as $cat): ?>
             <option value="<?php echo $cat['id']?>"><?php echo $cat['category_name']?></option>

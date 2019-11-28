@@ -55,18 +55,32 @@
 		global $url;
 		$id = $_POST['id'];
 		$photo_qty = $_POST['photo_qty'];
-
 		$item = get_item($id);
-
 		update_qty($id, $photo_qty);
 
+		$photo_names = get_photo($id);
+		$dir = 'item_gallary';
+		$dirHandle = opendir($dir);
+		foreach ($photo_names as $data) {
+			while($file = readdir($dirHandle))
+				if($file == $data['name'])
+					unlink($dir."/".$file);
+		}
+		closedir($dirHandle);
+
+		delete_photo($id);
+
 		if($photo_qty > 0)
+		{
 			for($i=0; $i<$photo_qty; $i++)
 			{
 				$tmp = $_FILES["p$i"]['tmp_name'];
-				$p_name = $item['item_code']."_id_".$id."_".$i;
-				move_uploaded_file($tmp, "item_gallary/$p_name.jpg");
+				$p_name = $_FILES["p$i"]['name'];
+				move_uploaded_file($tmp, "item_gallary/".$item_code."_".$p_name);
+				insert_photo($id, $item_code."_".$p_name);
 			}
+		}
+		exit("Bug");
 		$category_id = $item['category_id'];
 		header("location: $url/pg_admin/item/list/$category_id");
 	}
@@ -91,6 +105,22 @@
 	function remove_item($id)
 	{
 		global $url;
+		$item = get_item($id);
+		$photo_names = get_photo($id);
+		$dir = 'item_gallary';
+
+		$dirHandle = opendir($dir);
+		foreach ($photo_names as $data) {
+			while($file = readdir($dirHandle))
+			{
+				if($file === $data['name'])
+					unlink($dir."/".$file);
+			}
+		}
+		closedir($dirHandle);
+
+		exit("Bug");
+		delete_photo($id);
 		$category_id = delete_id($id);
 		header("location: $url/pg_admin/item/list/$category_id");
 	}
