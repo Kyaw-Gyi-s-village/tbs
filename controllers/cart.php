@@ -1,4 +1,4 @@
-<?php 
+<?php
 switch($action)
 {
 	case "list":
@@ -16,7 +16,7 @@ switch($action)
 }
 
 function show_list()
-{	
+{
 	global $url;
 	if(!isset($_SESSION['cart']) or $_SESSION['cart'] == null )
 		header("location: $url");
@@ -32,7 +32,7 @@ function increase_cart()
 		$id = strip_tags($_POST['id']);
 		$quantity = strip_tags($_POST['quantity']);
 		$remark = strip_tags($_POST['remark']);
-		add_carts($id, $quantity, $remarks);
+		add_carts($id, $quantity, $remark);
 		header("location: $url/");
 	}
 	else

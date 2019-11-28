@@ -1,4 +1,4 @@
-<?php 
+<?php
 	function item_qty()
 	{
 		$cart = 0;
@@ -12,7 +12,7 @@
 		if(!isset($_SESSION['cart']["$id"]))
 			$_SESSION['cart'][$id]=1;
 		else
-			$_SESSION['cart'][$id]++;	
+			$_SESSION['cart'][$id]++;
 
 		$qty = item_qty();
 		echo json_encode(array("qty" => $qty));
@@ -21,9 +21,13 @@
 	function add_carts($id, $qty, $remark)
 	{
 		if(!isset($_SESSION['cart'][$id]))
-			$_SESSION['cart'][$id]=1;
+		{
+			$_SESSION['cart'][$id]=$qty;
+		}
 		else
+		{
 			$_SESSION['cart'][$id]+=$qty;
+		}
 
 		$_SESSION['remark'][$id]=$remark;
 	}
