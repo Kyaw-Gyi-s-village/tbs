@@ -1,4 +1,4 @@
-<?php 
+<?php
 	switch($action){
 		case '':
 		case 'list':
@@ -34,15 +34,18 @@
 		$summary_unicode = $_POST['summary_unicode'];
 		$category_id = $_POST['category_id'];
 		$photo_qty = $_POST['photo_qty'];
-		
+
 		$id = insert_item($item_name, $item_code, $stock, $price, $discount_percent, $summary_zawgyi, $summary_unicode, $category_id, $photo_qty);
 		if($photo_qty > 0)
+		{
 			for($i=0; $i<$photo_qty; $i++)
 			{
 				$tmp = $_FILES["p$i"]['tmp_name'];
-				$p_name = $item_code."_id_".$id."_".$i;
-				move_uploaded_file($tmp, "item_gallary/$p_name.jpg");
+				$p_name = $_FILES["p$i"]['name'];
+				move_uploaded_file($tmp, "item_gallary/$p_name");
+				insert_photo($id, $p_name);
 			}
+		}
 
 		header("location: $url/pg_admin/item/list/$category_id");
 	}
