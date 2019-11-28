@@ -34,7 +34,6 @@
 	function get_same_cat_items($id)
 	{
 		global $conn;
-		/*$result = $conn->prepare("SELECT items.*, categories.category_name FROM items WHERE category_id=:id LEFT JOIN cateoties ON items.category_id=categories.id ORDER BY items.order_num");*/
 		$result = $conn->prepare("SELECT * FROM items WHERE category_id=:id ORDER BY order_num");
 		$result->execute(array('id'=>$id));
 		$items = array();

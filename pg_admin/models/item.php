@@ -13,7 +13,7 @@
 function insert_item($item_name, $item_code, $stock, $price, $discount_percent, $summary_zawgyi, $summary_unicode, $category_id, $photo_qty)
 {
 	global $conn;
-	$result = $conn->prepare("INSERT INTO items (item_name, item_code, status, stock, price, discount_percent, summary_zawgyi, summary_unicode, category_id, photo_qty, created_date, modified_date) VALUES (:item_name, :item_code, 1, :stock, :price, :discount_percent, :summary_zawgyi, :summary_unicode, :category_id, :photo_qty, now(), now())");
+	$result = $conn->prepare("INSERT INTO items (item_name, item_code, status, order_num, stock, price, discount_percent, summary_zawgyi, summary_unicode, category_id, photo_qty, created_date, modified_date) VALUES (:item_name, :item_code, 1, 0, :stock, :price, :discount_percent, :summary_zawgyi, :summary_unicode, :category_id, :photo_qty, now(), now())");
 	$result->execute(array('item_name'=>$item_name, 'item_code'=>$item_code, 'stock'=>$stock, 'price'=>$price, 'discount_percent'=>$discount_percent, 'summary_zawgyi'=>$summary_zawgyi, 'summary_unicode'=>$summary_unicode, 'category_id'=>$category_id, 'photo_qty'=>$photo_qty));
 	return $conn->lastInsertId();
 }
@@ -26,6 +26,19 @@ function insert_item($item_name, $item_code, $stock, $price, $discount_percent, 
 		$result->execute(array('item_id'=>$item_id, 'name'=>$name));
 	}
 
+#read item photo's name into item_photos
+	function get_photo($item_id)
+	{
+		global $conn;
+		$result = $conn->prepare("SELECT * FROM item_photos WHERE item_id=:item_id");
+		$result->execute(array('item_id'=>$item_id));
+		$names = array();
+		while($row = $result->fetch())
+		{
+			$names[] = $row;
+		}
+		return $names;
+	}
 #delete item photo's name into item_photos
 	function delete_photo($id, $name)
 	{

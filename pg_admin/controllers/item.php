@@ -42,8 +42,8 @@
 			{
 				$tmp = $_FILES["p$i"]['tmp_name'];
 				$p_name = $_FILES["p$i"]['name'];
-				move_uploaded_file($tmp, "item_gallary/$p_name");
-				insert_photo($id, $p_name);
+				move_uploaded_file($tmp, "item_gallary/".$item_code."_".$p_name);
+				insert_photo($id, $item_code."_".$p_name);
 			}
 		}
 

@@ -1,6 +1,6 @@
 <header id="item-header">
   <h1>Item List</h1>
-  <button class="header-button">+ New Item</button>
+  <button class="header-button hk-item-button">+ New Item</button>
 </header>
 
 <nav class="item-wrap"><!--categories list-->
@@ -54,9 +54,9 @@
           </header>
           <section class="item-info-body">
             <div class="item-img">
-              <?php for($i=0; $i<$item['photo_qty']; $i++): ?>
-                <img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $item['item_code'].'_id_'.$item['id'].'_'.$i.'.jpg'?>" alt="<?php echo $item['item_name']?>" width="96px" height="96px">
-              <?php endfor; ?>
+              <?php $img_names=get_photo($item['id']); foreach($img_names as $img_name): ?>
+                <img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $img_name['name']?>" alt="<?php echo $item['item_name']?>" width="96px" height="96px">
+              <?php endforeach; ?>
             </div>
             <div class="item-remark">
               <p class="summary_zawgyi"><?php echo $item['summary_zawgyi'] ?></p>
@@ -102,7 +102,8 @@
         <textarea id="summary_unicode" name="summary_unicode" required="required"></textarea>
 
         <label for="category_id" id="category-label">Category:</label>
-        <select id="category_id" name="category_id">
+        <select id="category_id" name="category_id" required>
+          <option selected disabled>--SELECT--</option>
           <?php $cats = get_all_cats(); foreach( $cats as $cat): ?>
             <option value="<?php echo $cat['id']?>"><?php echo $cat['category_name']?></option>
           <?php endforeach; ?>
