@@ -399,8 +399,7 @@ body{
     }
 
     #wp-overlay-name{
-      background-color: rgba(0,0,0,0.8);
-      color: white;
+      color: #8a8383;
       padding: 0 10px 5px 10px;
       border-radius: 5px;
     }
@@ -994,7 +993,7 @@ body{
       .wp-detail-buynow:hover{
         opacity: 1;
         color: tomato;
-        background-color: transparent; 
+        background-color: transparent;
       }
 
       .wp-detail-addtocart{
@@ -1625,7 +1624,7 @@ body{
       background-color: rgba(0,0,0,0.7);
     }
 
-    .related-photo-border a:hover #related-item-name, 
+    .related-photo-border a:hover #related-item-name,
     .related-photo-border a:hover #related-item-price{
       transform: translateY(0);
       opacity: 1;
@@ -1686,7 +1685,7 @@ body{
     #wp-detail-about{
      display: none;
     }
-    
+
     /*for detail form*/
       .wp-detail-form{
         background-color: #fcfcfc;
@@ -1913,8 +1912,7 @@ body{
     }
 
     #wp-overlay-name{
-      background-color: rgba(0,0,0,0.8);
-      color: white;
+      color: #8a8383;
       padding: 0 10px 8px 10px;
       border-radius: 5px;
     }
@@ -2272,7 +2270,7 @@ body{
       background-color: rgba(255,255,255,0.9);
     }
 
-    .related-photo-border a:hover #related-item-name, 
+    .related-photo-border a:hover #related-item-name,
     .related-photo-border a:hover #related-item-price{
       transform: translateY(0);
     }
@@ -2342,7 +2340,7 @@ body{
     #wp-detail-about{
      display: none;
     }
-    
+
     /*for detail form*/
       .wp-detail-form{
         background-color: #fcfcfc;
@@ -2685,4 +2683,3 @@ body{
 
 
 }
-

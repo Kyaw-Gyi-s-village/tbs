@@ -33,11 +33,11 @@
 			<td id="wp-detail-item-unit-price" class="wp-detail-form-right" data-prc="<?php echo $data['price']*(100-$data['discount_percent'])/100?>">
 			  <?php if($data['discount_percent']==0): ?>
 					<span>
-					  <?php echo $data['price'] ?>&nbsp;Ks
+					  <?php echo number_format($data['price']) ?>&nbsp;Ks
 					</span>
 			  <?php else: ?>
-					<span><?php echo $data['price']*(100-$data['discount_percent'])/100?>&nbsp;Ks</span>
-					<span id="wp-discount-price"><?php echo $data['price'] ?>&nbsp;Ks</span>
+					<span><?php echo number_format($data['price']*(100-$data['discount_percent'])/100)?>&nbsp;Ks</span>
+					<span id="wp-discount-price"><?php echo number_format($data['price']) ?>&nbsp;Ks</span>
 			  <?php endif; ?>
 			</td>
 	  </tr>
@@ -87,7 +87,7 @@
 						<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $item['item_code'].'_id_'.$item['id'].'_0'.'.jpg'?>" alt="<?php echo $item['item_name'] ?>" style="object-fit: cover">
 						<div class="related-item-info">
 							<span id="related-item-name"><?php echo $item['item_name'] ?></span>
-							<span id="related-item-price"><?php echo $data['price'] ?>&nbsp;Ks</span>
+							<span id="related-item-price"><?php echo number_format($item['price']*(100-$data['discount_percent'])/100) ?>&nbsp;Ks</span>
 						</div>
 				  </a>
 				<?php endforeach; ?>

@@ -52,7 +52,7 @@
 								<!--calcs item price-->
 								<?php if($item['discount_percent']==0): ?>
 									<span class="wp-item-unit-price" data-prc="<?php echo $item['price']*(100-$item['discount_percent'])/100 ?>" title="Price">
-										<?php echo $item['price'] ?>Ks
+										<?php echo number_format($item['price']) ?>Ks
 									</span>
 								<?php else: ?>
 									<span class="wp-item-unit-price" data-prc="<?php echo $item['price']*(100-$item['discount_percent'])/100 ?>" title="Price">
