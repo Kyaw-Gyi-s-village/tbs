@@ -9,14 +9,14 @@ $(document).ready(function(){
 		$('#wp-overlay-name').html("Add new Promotion Text");
 		$('#admin-overlay-button input').attr('value', "Add Item");
 		$('form').attr("action", web_url + "/pg_admin/item/add/");
-		$('#item_name').attr('name', "item_name").show();
-		$('#item_code').attr('name', "item_code").show();
-		$('#stock').attr('name', "stock").show();
-		$('#price').attr('name', "price").show();
-		$('#discount_percent').attr('name', "discount_percent").show();
-		$('#summary_zawgyi').attr('name', "summary_zawgyi").show();
-		$('#summary_unicode').attr('name', "summary_unicode").show();
-		$('#category_id').attr('name', "category_id").show();
+		$('#item_name').attr('name', "item_name").show().attr('required', "required");
+		$('#item_code').attr('name', "item_code").show().attr('required', "required");
+		$('#stock').attr('name', "stock").show().attr('required', "required");
+		$('#price').attr('name', "price").show().attr('required', "required");
+		$('#discount_percent').attr('name', "discount_percent").show().attr('required', "required");
+		$('#summary_zawgyi').attr('name', "summary_zawgyi").show().attr('required', "required");
+		$('#summary_unicode').attr('name', "summary_unicode").show().attr('required', "required");
+		$('#category_id').attr('name', "category_id").show().attr('required', "required");
 		$('#add-photo, .photo-frame').show();
 		$('label').show();
 
@@ -35,14 +35,14 @@ $(document).ready(function(){
 		$('#admin-overlay-button input').attr('value', "Edit Photo");
 		$('form').attr("action", web_url + "/pg_admin/item/edit_photos/");
 		$('#hk-item-id-js').val(id);
-		$('#item_name').attr('name', "").hide();
-		$('#item_code').attr('name', "").hide();
-		$('#stock').attr('name', "").hide();
-		$('#price').attr('name', "").hide();
-		$('#discount_percent').attr('name', "").hide();
-		$('#summary_zawgyi').attr('name', "").hide();
-		$('#summary_unicode').attr('name', "").hide();
-		$('#category_id').attr('name', "").hide();
+		$('#item_name').attr('name', "").hide().removeAttr('required');
+		$('#item_code').attr('name', "").hide().removeAttr('required');
+		$('#stock').attr('name', "").hide().removeAttr('required');
+		$('#price').attr('name', "").hide().removeAttr('required');
+		$('#discount_percent').attr('name', "").hide().removeAttr('required');
+		$('#summary_zawgyi').attr('name', "").hide().removeAttr('required');
+		$('#summary_unicode').attr('name', "").hide().removeAttr('required');
+		$('#category_id').attr('name', "").hide().removeAttr('required');
 		$('label').hide();
 	});
 

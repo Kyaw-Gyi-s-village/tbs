@@ -56,6 +56,7 @@
 		$id = $_POST['id'];
 		$photo_qty = $_POST['photo_qty'];
 		$item = get_item($id);
+		$item_code = $item['item_code'];
 		update_qty($id, $photo_qty);
 
 		$photo_names = get_photo($id);
@@ -80,7 +81,6 @@
 				insert_photo($id, $item_code."_".$p_name);
 			}
 		}
-		exit("Bug");
 		$category_id = $item['category_id'];
 		header("location: $url/pg_admin/item/list/$category_id");
 	}
