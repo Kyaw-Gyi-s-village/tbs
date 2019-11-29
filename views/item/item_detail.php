@@ -84,7 +84,7 @@
 	  		<div class="related-photo-border">
 			  <?php $related_item = get_same_cat_items($data['category_id']); foreach($related_item as $item): ?>
 				  <a href="<?php echo $url ?>/item/detail/<?php echo $item['id'] ?>" class="related-photos">
-						<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $photo?>" alt="<?php echo $item['item_name'] ?>" style="object-fit: cover">
+						<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php $ps = get_item_photos($item['id']); $p = $ps[0]['name']; echo $p?>" alt="<?php echo $item['item_name'] ?>" style="object-fit: cover">
 						<div class="related-item-info">
 							<span id="related-item-name"><?php echo $item['item_name'] ?></span>
 							<span id="related-item-price"><?php echo number_format($item['price']*(100-$data['discount_percent'])/100) ?>&nbsp;Ks</span>
