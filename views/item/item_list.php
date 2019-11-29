@@ -33,11 +33,11 @@
 			</header>
 
 			<section class="wp-category-item"><!-- display items related title -->
-				<?php $data = get_all_items(); $item_num=0; foreach($data as $item): if( $item['category_id']===$cat['id'] && $item['status']==1 ): ?>
+				<?php $data = get_all_items(); $item_num=0; foreach($data as $item): if( $item['category_id']===$cat['id'] && $item['status']==1 ): $photos = get_item_photos($item['id']); $photo = $photos[0]['name'] ?>
 					<article class="wp-item-box hk-item-<?php echo $item_num++?>"><!-- display items where status is 1 and order by items' order number -->
 						<a href="<?php echo $url ?>/item/detail/<?php echo $item['id'] ?>">
 							<div><!-- display image -->
-								<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $item['item_code'].'_id_'.$item['id'].'_0'.'.jpg'?>" class="hk-id-js" style="object-fit: cover">
+								<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $photo?>" class="hk-id-js" style="object-fit: cover">
 		           	<div class="wp-item-photo">Detail</div><!--to know that it is link-->
 							</div><!-- end of display image -->
 

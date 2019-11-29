@@ -21,7 +21,7 @@
 			?>
 				<tr>
 				  <td>
-				  	<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $item['item_code'].'_id_'.$item['id'].'_0'.'.jpg'?>" alt="<?php echo $item['item_name']?>" width="64px" height="64px" class="hk-item-img-table">
+				  	<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php $photos = get_item_photos($item['id']); $photo = $photos[0]['name']; echo $photo?>" alt="<?php echo $item['item_name']?>" width="64px" height="64px" class="hk-item-img-table">
 				  </td>
 				  <td><?php echo $item['item_name']?></td>
 				  <td><?php echo $item['item_code']?></td>

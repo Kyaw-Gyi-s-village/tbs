@@ -1,17 +1,17 @@
 <section class="detail-about-items">
 <section class="wp-detail-photos"><!-- show item photos -->
-	<div class="wp-zoom" style="background-image: url(<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $data['item_code'].'_id_'.$data['id'].'_0'.'.jpg'?>)">
-		<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $data['item_code'].'_id_'.$data['id'].'_0'.'.jpg'?>" alt="<?php echo $data['item_name']?>" id="wp-default-photo" style="object-fit: cover">
+	<div class="wp-zoom" style="background-image: url(<?php echo $url_file ?>/pg_admin/item_gallary/<?php $photos = get_item_photos($data['id']); $photo = $photos[0]['name']; echo $photo?>)">
+		<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $photo?>" alt="<?php echo $data['item_name']?>" id="wp-default-photo" style="object-fit: cover">
 	</div><!--show main photo-->
 
 	<div class="photo-overlay"><!-- photo overlay -->
 		<span id="photo-overlay-close"><i class="far fa-times-circle"></i></span>
-		<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $data['item_code'].'_id_'.$data['id'].'_0'.'.jpg'?>" alt="<?php echo $data['item_name']?>" id="wp-img-target" style="object-fit: cover">
+		<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $photo?>" alt="<?php echo $data['item_name']?>" id="wp-img-target" style="object-fit: cover">
 	</div>
 	<div><!--Other photos-->
-		<?php for($i=0; $i<$data['photo_qty']; $i++): ?>
-		  <img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $data['item_code'].'_id_'.$data['id'].'_'.$i.'.jpg'?>" alt="<?php echo $data['item_name']?>" class="wp-product-photo" id="wp-photo<?php echo $i+1?>" width="64px" height="64px" style="object-fit: cover">
-		<?php endfor; ?>
+		<?php foreach($photos as $name): ?>
+		  <img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $name['name']?>" alt="<?php echo $data['item_name']?>" class="wp-product-photo" id="wp-photo<?php echo $i+1?>" width="64px" height="64px" style="object-fit: cover">
+		<?php endforeach;?>
 	</div>
   <a href="#hk-target-about"><div id="wp-detail-about">About product</div></a><!--Item info detail-->
 </section><!-- end of show item photos -->
@@ -84,7 +84,7 @@
 	  		<div class="related-photo-border">
 			  <?php $related_item = get_same_cat_items($data['category_id']); foreach($related_item as $item): ?>
 				  <a href="<?php echo $url ?>/item/detail/<?php echo $item['id'] ?>" class="related-photos">
-						<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $item['item_code'].'_id_'.$item['id'].'_0'.'.jpg'?>" alt="<?php echo $item['item_name'] ?>" style="object-fit: cover">
+						<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $photo?>" alt="<?php echo $item['item_name'] ?>" style="object-fit: cover">
 						<div class="related-item-info">
 							<span id="related-item-name"><?php echo $item['item_name'] ?></span>
 							<span id="related-item-price"><?php echo number_format($item['price']*(100-$data['discount_percent'])/100) ?>&nbsp;Ks</span>
