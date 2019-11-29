@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 22, 2019 at 04:42 AM
+-- Generation Time: Nov 29, 2019 at 07:39 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -40,9 +40,11 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `category_name`, `status`, `order_num`) VALUES
-(1, 'watches', 1, 1),
-(2, 'clothes', 1, 2),
-(3, 'Phone', 1, 0);
+(1, 'watches', 1, 0),
+(2, 'clothes', 1, 1),
+(3, 'Phone', 1, 2),
+(13, 'Car', 1, 3),
+(14, 'Computer', 1, 4);
 
 -- --------------------------------------------------------
 
@@ -64,8 +66,8 @@ CREATE TABLE `delivery` (
 
 INSERT INTO `delivery` (`id`, `name`, `states_and_regions`, `price`, `lead_time`) VALUES
 (1, 'Mawlamyine', 'Mon', 3000, 48),
-(2, 'Yangon', 'Yangon', 2000, 24),
-(5, 'Ta Htone', 'Mon', 4000, 24);
+(5, 'Ta Htone', 'Mon', 4000, 24),
+(6, 'Nay Pyi Taw', 'Mandalay', 50000, 24);
 
 -- --------------------------------------------------------
 
@@ -95,17 +97,42 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `item_name`, `item_code`, `status`, `order_num`, `stock`, `price`, `discount_percent`, `summary_zawgyi`, `summary_unicode`, `category_id`, `photo_qty`, `created_date`, `modified_date`) VALUES
-(1, 'casio edifice', 'ef550RBSB', 1, 2, 10, 100000, 10, 'ကျမကျမ', 'some text', 1, 1, '2019-04-29 21:00:22', '2019-04-29 21:00:22'),
-(2, 'Longyi', 'L-11', 1, 1, 20, 10000, 0, 'ကူစမ', 'hello', 2, 2, '2019-04-29 21:00:22', '2019-04-29 21:00:22'),
-(3, 'G-Shock', 'g-550', 1, 3, 10, 100000, 1, 'တန', 'asd', 1, 3, '2019-04-30 16:49:33', '2019-04-30 16:49:33'),
-(4, 'Casio Edifice', 'Ef-530', 0, 0, 15, 145000, 0, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Attingere torquatus invitat consuevit fictae, iudicem perfruique iudicio grate desiderare versatur vias moderatio metuamus, voluptatibus pugnare populo comparandae loquuntur ipsarum simulent elaborare duo, exorsus nullae recusandae cur concertationesque commodi celeritas omnesque occulte dixi, istius se platone existunt praetore assumenda. ', 'Attingere torquatus invitat consuevit fictae, iudicem perfruique iudicio grate desiderare versatur vias moderatio metuamus, voluptatibus pugnare populo comparandae loquuntur ipsarum simulent elaborare duo, exorsus nullae recusandae cur concertationesque commodi celeritas omnesque occulte dixi, istius se platone existunt praetore assumenda. Morbos alias posidonium deterius, tractat impendet studio adest mundus quaestionem adamare didicisse tantas, ultimum aliquos suscipiantur temporibus perpetuam. Id negant reprehensione doctrina studiose perveniri gratissimo patriam filio, dignissimos aliquid equidem euripidis desperantes impetum.', 1, 6, '2019-05-09 12:04:09', '2019-05-09 12:04:09'),
-(5, 'Longyi', 'L-12', 0, 0, 30, 12000, 0, 'Attingere torquatus invitat consuevit fictae, iudicem perfruique iudicio grate desiderare versatur vias moderatio metuamus, voluptatibus pugnare populo comparandae loquuntur ipsarum simulent elaborare duo, exorsus nullae recusandae cur concertationesque commodi celeritas omnesque occulte dixi, istius se platone existunt praetore assumenda. Morbos alias posidonium deterius, tractat impendet studio adest mundus quaestionem adamare didicisse tantas, ultimum aliquos suscipiantur temporibus perpetuam. Id negant reprehensione doctrina studiose perveniri gratissimo patriam filio, dignissimos aliquid equidem euripidis desperantes impetum.', 'Attingere torquatus invitat consuevit fictae, iudicem perfruique iudicio grate desiderare versatur vias moderatio metuamus, voluptatibus pugnare populo comparandae loquuntur ipsarum simulent elaborare duo, exorsus nullae recusandae cur concertationesque commodi celeritas omnesque occulte dixi, istius se platone existunt praetore assumenda. Morbos alias posidonium deterius, tractat impendet studio adest mundus quaestionem adamare didicisse tantas, ultimum aliquos suscipiantur temporibus perpetuam. Id negant reprehensione doctrina studiose perveniri gratissimo patriam filio, dignissimos aliquid equidem euripidis desperantes impetum.', 2, 2, '2019-05-09 12:06:38', '2019-05-09 12:06:38'),
-(6, 'Longyi', 'L-23', 0, 0, 50, 12500, 30, 'Attingere torquatus invitat consuevit fictae, iudicem perfruique iudicio grate desiderare versatur vias moderatio metuamus, voluptatibus pugnare populo comparandae loquuntur ipsarum simulent elaborare duo, exorsus nullae recusandae cur concertationesque commodi celeritas omnesque occulte dixi, istius se platone existunt praetore assumenda. Morbos alias posidonium deterius, tractat impendet studio adest mundus quaestionem adamare didicisse tantas, ultimum aliquos suscipiantur temporibus perpetuam. Id negant reprehensione doctrina studiose perveniri gratissimo patriam filio, dignissimos aliquid equidem euripidis desperantes impetum.', 'Attingere torquatus invitat consuevit fictae, iudicem perfruique iudicio grate desiderare versatur vias moderatio metuamus, voluptatibus pugnare populo comparandae loquuntur ipsarum simulent elaborare duo, exorsus nullae recusandae cur concertationesque commodi celeritas omnesque occulte dixi, istius se platone existunt praetore assumenda. Morbos alias posidonium deterius, tractat impendet studio adest mundus quaestionem adamare didicisse tantas, ultimum aliquos suscipiantur temporibus perpetuam. Id negant reprehensione doctrina studiose perveniri gratissimo patriam filio, dignissimos aliquid equidem euripidis desperantes impetum.', 2, 2, '2019-05-09 12:08:34', '2019-05-09 12:08:34'),
-(7, 'Casio Edifice', 'EF-560', 1, 0, 5, 165000, 8, 'Attingere torquatus invitat consuevit fictae, iudicem perfruique iudicio grate desiderare versatur vias moderatio metuamus, voluptatibus pugnare populo comparandae loquuntur ipsarum simulent elaborare duo, exorsus nullae recusandae cur concertationesque commodi celeritas omnesque occulte dixi, istius se platone existunt praetore assumenda. Morbos alias posidonium deterius, tractat impendet studio adest mundus quaestionem adamare didicisse tantas, ultimum aliquos suscipiantur temporibus perpetuam. Id negant reprehensione doctrina studiose perveniri gratissimo patriam filio, dignissimos aliquid equidem euripidis desperantes impetum.', 'Attingere torquatus invitat consuevit fictae, iudicem perfruique iudicio grate desiderare versatur vias moderatio metuamus, voluptatibus pugnare populo comparandae loquuntur ipsarum simulent elaborare duo, exorsus nullae recusandae cur concertationesque commodi celeritas omnesque Attingere torquatus invitat consuevit fictae, iudicem perfruique iudicio grate desiderare versatur vias moderatio metuamus, voluptatibus pugnare populo comparandae loquuntur ipsarum simulent elaborare duo, exorsus nullae recusandae cur concertationesque commodi celeritas omnesque occulte dixi, istius se platone existunt praetore assumenda. Morbos alias posidonium deterius, tractat impendet studio adest mundus quaestionem adamare didicisse tantas, ultimum aliquos suscipiantur temporibus perpetuam. Id negant reprehensione doctrina studiose perveniri gratissimo patriam filio, dignissimos aliquid equidem euripidis desperantes impetum. occulte dixi, istius se platone existunt praetore assumenda. Morbos alias posidonium deterius, tractat impendet studio adest mundus quaestionem adamare didicisse tantas, ultimum aliquos suscipiantur temporibus perpetuam. Id negant reprehensione doctrina studiose perveniri gratissimo patriam filio, dignissimos aliquid equidem euripidis desperantes impetum.', 1, 3, '2019-05-09 12:11:08', '2019-05-09 12:11:08'),
-(8, 'Huawei P9lite', 'VNS-L31', 1, 0, 5, 279000, 10, 'celeritas omnesque occulte dixi, istius se platone existunt praetore assumenda. Morbos alias posidonium deterius, tractat impendet studio adest mundus quaestionem adamare didicisse tantas, ultimum aliquos suscipiantur temporibus perpetuam. Id negant reprehensione doctrina studiose perveniri gratissimo patriam filio, dignissimos aliquid equidem euripidis desperantes impetum.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Attingere torquatus invitat consuevit fictae, iudicem perfruique iudicio grate desiderare versatur vias moderatio metuamus, voluptatibus pugnare populo comparandae loquuntur ipsarum simulent elaborare duo, exorsus nullae recusandae cur concertationesque commodi.', 3, 6, '2019-05-09 12:17:30', '2019-05-09 12:17:30'),
-(9, 'Huawei GR7 2017', 'VNS-G32', 1, 0, 10, 300000, 10, 'Voluptatibus pugnare populo comparandae loquuntur ipsarum simulent elaborare duo, exorsus nullae recusandae cur concertationesque commodi celeritas omnesque occulte dixi, istius se platone existunt praetore assumenda. Morbos alias posidonium deterius, tractat impendet studio adest mundus quaestionem adamare didicisse tantas, ultimum aliquos suscipiantur temporibus perpetuam. Id negant reprehensione doctrina studiose perveniri gratissimo patriam filio, dignissimos aliquid equidem euripidis desperantes impetum.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Attingere torquatus invitat consuevit fictae, iudicem perfruique iudicio grate desiderare versatur vias moderatio metuamus, voluptatibus pugnare populo comparandae loquuntur ipsarum simulent elaborare duo, exorsus nullae recusandae cur concertationesque commodi celeritas omnesque occulte dixi, istius se platone existunt praetore assumenda. Morbos alias posidonium deterius, tractat impendet studio adest mundus quaestionem adamare didicisse tantas.', 3, 3, '2019-05-09 12:29:57', '2019-05-09 12:29:57'),
-(10, 'GG-shock', 'gs-111', 1, 0, 10, 135000, 10, 'á€€á€»á€°á€€á€»á€°', 'á€”á€°á€”á€°', 1, 2, '2019-05-23 14:41:04', '2019-05-25 23:46:19'),
-(12, 'Huawei P9lite', 'h-11', 1, 0, 10, 135000, 10, 'some', 'á€”á€žá€„á€ž', 3, 3, '2019-05-23 14:42:56', '2019-05-23 14:42:56');
+(1, 'Item Name 1', 'In1', 1, 0, 10, 100000, 10, 'item name 1', 'item name 1', 13, 1, '2019-11-29 09:48:44', '2019-11-29 09:48:44'),
+(6, 'Item Name 2', 'In2', 1, 0, 20, 200000, 20, 'Item name 2', 'Item name 2', 2, 2, '2019-11-29 11:01:33', '2019-11-29 11:03:00'),
+(7, 'Item Name 1', 'In3', 1, 0, 30, 300000, 30, 'item name 3', 'item name 3', 1, 3, '2019-11-29 11:04:05', '2019-11-29 11:04:05'),
+(8, 'item name 4', 'In4', 1, 0, 40, 400000, 40, 'item name 4', 'item name 4', 3, 4, '2019-11-29 11:05:13', '2019-11-29 11:05:13'),
+(9, 'Item Name w1', 'Inw1', 1, 0, 10, 100000, 10, 'text', 'text', 1, 1, '2019-11-29 12:42:01', '2019-11-29 12:48:54'),
+(10, 'Item Name w2', 'Inw2', 1, 0, 10, 1000000, 10, 'hrer', 'gefeff', 1, 2, '2019-11-29 12:45:01', '2019-11-29 12:45:01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `item_photos`
+--
+
+CREATE TABLE `item_photos` (
+  `item_id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `item_photos`
+--
+
+INSERT INTO `item_photos` (`item_id`, `name`) VALUES
+(1, 'In1_tree-736885_1280.jpg'),
+(6, 'In2_VNS-L31_id_8_5.jpg'),
+(6, 'In2_VNS-L31_id_8_4.jpg'),
+(7, 'In3_L-11_id_2_0.jpg'),
+(7, 'In3_L-23_id_6_1.jpg'),
+(7, 'In3_te_id_0_0.jpg'),
+(8, 'In4_Ef-530_id_4_3.jpg'),
+(8, 'In4_Ef-530_id_4_2.jpg'),
+(8, 'In4_Ef-530_id_4_1.jpg'),
+(8, 'In4_Ef-530_id_4_0.jpg'),
+(10, 'Inw2_L-12_id_5_0.jpg'),
+(10, 'Inw2_L-23_id_6_1.jpg'),
+(9, 'Inw1_VNS-L31_id_8_5.jpg');
 
 -- --------------------------------------------------------
 
@@ -132,7 +159,7 @@ INSERT INTO `login` (`id`, `username`, `password`, `permission`, `created_date`,
 (3, 'Wai Lin Phyo', 'c7f52b5a80d349cc09ac682cdb059a013269a9e3', 1, '2019-05-10 11:25:26', '2019-05-24 14:23:14'),
 (5, 'Myint Oo', 'f3c4aa8279c73a7bb8299406dd46d23332b0e0c6', 1, '2019-05-10 12:38:44', '2019-05-24 14:23:16'),
 (6, 'Harry Sang Te', 'f5e202dd89aea517bea95be1980b4360398f839f', 1, '2019-05-10 12:39:40', '2019-05-24 14:23:15'),
-(7, 'Arkar Phyo', '39b39cd5cffefda3d7db538664ed4c5c417ebcbf', 1, '2019-05-10 22:56:25', '2019-05-24 14:23:12'),
+(7, 'Arkar Phyo', '39b39cd5cffefda3d7db538664ed4c5c417ebcbf', 0, '2019-05-10 22:56:25', '2019-11-29 12:57:29'),
 (8, 'Khin Yu', '6f2a20e6515663460b44538d0257b94418f76b09', 1, '2019-05-26 09:20:41', '2019-05-26 09:20:43');
 
 -- --------------------------------------------------------
@@ -157,24 +184,9 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `name`, `phone`, `address`, `remark`, `status`, `created_date`, `modified_date`) VALUES
-(1, 'Hein Kaung Khant', '09798467816', '104, Marlarmyine 3rd st, Hlaing Qtr(16), Yangon', 'Something', 1, '2019-05-09 20:43:09', '2019-05-10 22:58:28'),
-(2, 'Hein Myat Thu', '09798407578', '104, U Aye 4th st, Hlaing Qtr(16), Yangon', 'Something', 0, '2019-05-09 20:43:09', '2019-05-10 22:58:33'),
-(3, 'Sang Zula', '09421143439', 'Chin Pyay', 'Chin Gyi', 0, '2019-05-13 22:33:01', '2019-05-13 22:33:01'),
-(4, 'Wai Linn Phyo', '09420035200', 'South Oakkalar', 'some', 0, '2019-05-13 22:40:48', '2019-05-13 22:40:48'),
-(5, 'Myint Oo', '09692730619', 'Hlaing', 'haha', 0, '2019-05-13 22:48:30', '2019-05-13 22:48:30'),
-(6, 'Swe Swe Nyein', '09798467816', 'Hlaing', 'haha', 0, '2019-05-14 11:45:37', '2019-05-14 11:45:37'),
-(7, 'Arkar Phyo', '09788351044', 'Yangon', 'something', 0, '2019-05-14 11:49:34', '2019-05-14 11:49:34'),
-(8, 'Hein Kaung Khant', '09798407578', 'Mawlamyine', 'Something', 0, '2019-05-14 16:52:47', '2019-05-14 16:52:47'),
-(9, 'Win Pa Pa Aung', '09260968600', 'Mawlamyine', 'Some', 0, '2019-05-14 16:54:45', '2019-05-14 16:54:45'),
-(14, 'Moe Thu', '09420035200', 'MICT park', 'some remark', 0, '2019-05-22 21:30:53', '2019-05-22 21:30:53'),
-(15, 'Hein Kaung Khant', '', '', '', 0, '2019-05-26 08:20:44', '2019-05-26 08:20:44'),
-(16, 'djdjsjs', 'jejejejdj', 'Jrjdjdjjddk', '', 0, '2019-05-26 13:51:31', '2019-05-26 13:51:31'),
-(17, 'wjjajdnnwdn', '38848827', 'Enfnwjsn', 'Ejjsjdjdd', 0, '2019-05-26 13:52:00', '2019-05-26 13:52:00'),
-(18, 'heinkaungkhant', '38848827', 'Djwjsjjwjdn', 'Djejjwjsjsj', 0, '2019-05-26 13:52:56', '2019-05-26 13:52:56'),
-(19, 'Wai Linn Phyo', '4024394823048', 'kfjiwafjewoafpjieaofj', '`jreajfioawjfoewjfaopej', 0, '2019-05-26 17:16:30', '2019-05-26 17:16:30'),
-(20, 'Aaa', '123', 'Bbb', 'Hhh', 0, '2019-05-27 08:33:23', '2019-05-27 08:33:23'),
-(21, 'Bskbxj', '846..467', 'Jdnfknf', 'Jdijnfok', 0, '2019-05-27 08:35:00', '2019-05-27 08:35:00'),
-(22, 'Usbxjndjc', '937968', 'Odhosbih', 'Hdondjc', 0, '2019-05-27 08:35:53', '2019-06-15 09:25:48');
+(1, 'Test Customer 1', '09798467816', 'Yangon', 'some', 0, '2019-11-29 11:53:32', '2019-11-29 11:53:32'),
+(2, 'Test Buy now 1', '09798467816', 'Yangon', 'Something', 0, '2019-11-29 12:59:06', '2019-11-29 12:59:06'),
+(3, 'Test Customer 2', '09260968600', 'Yangon', 'some', 0, '2019-11-29 13:00:49', '2019-11-29 13:00:49');
 
 -- --------------------------------------------------------
 
@@ -195,32 +207,17 @@ CREATE TABLE `order_items` (
 --
 
 INSERT INTO `order_items` (`id`, `qty`, `remark`, `item_id`, `order_id`) VALUES
-(1, 3, 'some', 1, 1),
-(2, 2, 'something', 2, 1),
-(3, 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temperantiam amicitiam desiderat poterimus utrumque, iucunditatis. Quaeri proficiscuntur innumerabiles pariatur ulla, quaeso sicine', 5, 2),
-(4, 3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temperantiam amicitiam desiderat poterimus utrumque, iucunditatis. Quaeri proficiscuntur innumerabiles pariatur ulla, quaeso sicine', 7, 2),
-(5, 1, '', 1, 3),
-(6, 1, '', 2, 4),
-(7, 1, '', 8, 5),
-(8, 1, '', 9, 6),
-(9, 1, '', 7, 7),
-(10, 1, '', 8, 8),
-(11, 3, '', 2, 9),
-(16, 1, 'one', 7, 14),
-(17, 1, 'two', 1, 14),
-(18, 1, 'three', 2, 14),
-(19, 1, 'four', 8, 14),
-(20, 1, 'five', 9, 14),
-(21, 10, '', 8, 16),
-(22, 1, '', 8, 17),
-(23, 1, '', 7, 18),
-(24, 2, '', 2, 19),
-(25, 2, '', 7, 19),
-(26, 5, '', 10, 19),
-(27, 5, '', 1, 19),
-(28, 1, '', 8, 20),
-(29, 1, '', 7, 21),
-(30, 1, '', 2, 22);
+(1, 6, '6', 1, 1),
+(2, 1, '1', 6, 1),
+(3, 1, '1', 7, 1),
+(4, 1, '1', 8, 1),
+(5, 3, '', 7, 2),
+(6, 1, '1', 10, 3),
+(7, 1, '1', 9, 3),
+(8, 4, '1', 7, 3),
+(9, 1, '4', 6, 3),
+(10, 1, '1', 8, 3),
+(11, 1, '1', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -239,8 +236,9 @@ CREATE TABLE `promo_photos` (
 
 INSERT INTO `promo_photos` (`id`, `created_date`) VALUES
 (5, '2019-05-10 12:31:09'),
-(6, '2019-05-10 12:31:17'),
-(7, '2019-05-19 21:10:16');
+(7, '2019-05-19 21:10:16'),
+(8, '2019-11-28 20:58:59'),
+(9, '2019-11-29 12:38:20');
 
 -- --------------------------------------------------------
 
@@ -260,7 +258,7 @@ CREATE TABLE `promo_text` (
 --
 
 INSERT INTO `promo_text` (`id`, `promo_text`, `created_date`, `modified_date`) VALUES
-(2, 'Hein Kaung. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.', '2019-05-07 22:18:10', '2019-05-19 21:10:36');
+(2, 'Update Hein Kaung. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.', '2019-05-07 22:18:10', '2019-11-28 20:59:15');
 
 --
 -- Indexes for dumped tables
@@ -322,19 +320,19 @@ ALTER TABLE `promo_text`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `delivery`
 --
 ALTER TABLE `delivery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `login`
@@ -346,19 +344,19 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `promo_photos`
 --
 ALTER TABLE `promo_photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `promo_text`
