@@ -61,13 +61,16 @@
 
 		$photo_names = get_photo($id);
 		$dir = 'item_gallary';
-		$dirHandle = opendir($dir);
 		foreach ($photo_names as $data) {
+			$dirHandle = opendir($dir);
 			while($file = readdir($dirHandle))
+			{
 				if($file == $data['name'])
 					unlink($dir."/".$file);
+			}
+			closedir($dirHandle);
 		}
-		closedir($dirHandle);
+
 
 		delete_photo($id);
 
@@ -109,17 +112,17 @@
 		$photo_names = get_photo($id);
 		$dir = 'item_gallary';
 
-		$dirHandle = opendir($dir);
 		foreach ($photo_names as $data) {
+			$dirHandle = opendir($dir);
 			while($file = readdir($dirHandle))
 			{
 				if($file === $data['name'])
 					unlink($dir."/".$file);
 			}
+			closedir($dirHandle);
 		}
-		closedir($dirHandle);
 
-		exit("Bug");
+
 		delete_photo($id);
 		$category_id = delete_id($id);
 		header("location: $url/pg_admin/item/list/$category_id");
