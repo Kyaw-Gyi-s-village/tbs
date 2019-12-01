@@ -4,11 +4,11 @@
 </header>
 
 <section class="wp-category-item"><!-- display items related title -->
-	<?php foreach($data as $item): if($item['status']==1):?>
+	<?php foreach($data as $item): if($item['status']==1): $photos = get_item_photos($item['id']); $photo = $photos[0]['name']?>
 		<article class="wp-item-box"><!-- display items where status is 1 and order by items' order number -->
 			<a href="<?php echo $url ?>/item/detail/<?php echo $item['id'] ?>">
 				<div><!-- display image -->
-					<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $item['item_code'].'_id_'.$item['id'].'_0'.'.jpg'?>" alt="<?php echo $item['item_name']?>" class="hk-id-js" style="object-fit: cover">
+					<img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $photo?>" alt="<?php echo $item['item_name']?>" class="hk-id-js" style="object-fit: cover">
 					<div class="wp-item-photo">Detail</div><!--to know that it is link-->
 				</div><!-- end of display image -->
 

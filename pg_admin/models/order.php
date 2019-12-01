@@ -1,4 +1,12 @@
-<?php 
+<?php
+#read item photo's name into item_photos
+	function get_item_photo($item_id)
+	{
+		global $conn;
+		$result = $conn->prepare("SELECT * FROM item_photos WHERE item_id=:item_id");
+		$result->execute(array('item_id'=>$item_id));
+		return $result->fetch();
+	}
 #get order by id from orders table
 	function get_order($id)
 	{
@@ -12,8 +20,8 @@
 #get new orders where status is 0 from orders table
 	function get_new_orders()
 	{
-		global $conn;		
-		return $conn->query("SELECT * FROM orders WHERE status = 0 ORDER BY created_date DESC");		
+		global $conn;
+		return $conn->query("SELECT * FROM orders WHERE status = 0 ORDER BY created_date DESC");
 	}
 
 #get completed orders where status is 1 from orders table
@@ -41,7 +49,7 @@
 #update status order by id from order_items table
 	function update_status($id, $status)
 	{
-		global $conn;		
+		global $conn;
 		$result = $conn->prepare("UPDATE orders SET status=:status, modified_date=now() WHERE id=:id");
 		$result->execute(array('status'=>$status, 'id'=>$id));
 	}

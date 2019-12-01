@@ -1,4 +1,4 @@
-<?php 
+<?php
 	switch($action){
 		case '':
 		case 'list':
@@ -34,15 +34,18 @@
 		$summary_unicode = $_POST['summary_unicode'];
 		$category_id = $_POST['category_id'];
 		$photo_qty = $_POST['photo_qty'];
-		
+
 		$id = insert_item($item_name, $item_code, $stock, $price, $discount_percent, $summary_zawgyi, $summary_unicode, $category_id, $photo_qty);
 		if($photo_qty > 0)
+		{
 			for($i=0; $i<$photo_qty; $i++)
 			{
 				$tmp = $_FILES["p$i"]['tmp_name'];
-				$p_name = $item_code."_id_".$id."_".$i;
-				move_uploaded_file($tmp, "item_gallary/$p_name.jpg");
+				$p_name = $_FILES["p$i"]['name'];
+				move_uploaded_file($tmp, "item_gallary/".$item_code."_".$p_name);
+				insert_photo($id, $item_code."_".$p_name);
 			}
+		}
 
 		header("location: $url/pg_admin/item/list/$category_id");
 	}
@@ -52,18 +55,35 @@
 		global $url;
 		$id = $_POST['id'];
 		$photo_qty = $_POST['photo_qty'];
-
 		$item = get_item($id);
-
+		$item_code = $item['item_code'];
 		update_qty($id, $photo_qty);
 
+		$photo_names = get_photo($id);
+		$dir = 'item_gallary';
+		foreach ($photo_names as $data) {
+			$dirHandle = opendir($dir);
+			while($file = readdir($dirHandle))
+			{
+				if($file == $data['name'])
+					unlink($dir."/".$file);
+			}
+			closedir($dirHandle);
+		}
+
+
+		delete_photo($id);
+
 		if($photo_qty > 0)
+		{
 			for($i=0; $i<$photo_qty; $i++)
 			{
 				$tmp = $_FILES["p$i"]['tmp_name'];
-				$p_name = $item['item_code']."_id_".$id."_".$i;
-				move_uploaded_file($tmp, "item_gallary/$p_name.jpg");
+				$p_name = $_FILES["p$i"]['name'];
+				move_uploaded_file($tmp, "item_gallary/".$item_code."_".$p_name);
+				insert_photo($id, $item_code."_".$p_name);
 			}
+		}
 		$category_id = $item['category_id'];
 		header("location: $url/pg_admin/item/list/$category_id");
 	}
@@ -88,6 +108,22 @@
 	function remove_item($id)
 	{
 		global $url;
+		$item = get_item($id);
+		$photo_names = get_photo($id);
+		$dir = 'item_gallary';
+
+		foreach ($photo_names as $data) {
+			$dirHandle = opendir($dir);
+			while($file = readdir($dirHandle))
+			{
+				if($file === $data['name'])
+					unlink($dir."/".$file);
+			}
+			closedir($dirHandle);
+		}
+
+
+		delete_photo($id);
 		$category_id = delete_id($id);
 		header("location: $url/pg_admin/item/list/$category_id");
 	}

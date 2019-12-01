@@ -1,6 +1,6 @@
 <section><!-- Promo Text Part -->
   <header id="item-header">
-    <h1>Promo Text</h1>  
+    <h1>Promo Text</h1>
   <?php $istext = 0; $promo = get_text(); foreach($promo as $promo_text):?>
 	 <button class="hk-edit-js header-button" data-id="<?php echo $promo_text['id'] ?>">Edit Text</button>
    </header>
@@ -14,9 +14,9 @@
 <section><!--Promo Photo Part-->
   <header id="item-header">
     <h1>Promo Photos</h1>
-    <button class="hk-create-photo-js header-button">Add Photo</button>
+    <button class="hk-create-photo-js header-button hk-item-button">+ Add Photo</button>
   </header>
-  
+
   <div class="sn-promo">
     <?php foreach($data as $promo_photo): ?>
   	<div>
@@ -31,7 +31,7 @@
       </div>
   	</div>
     <?php endforeach;?>
-  </div>  
+  </div>
 </section>
 
 <div class="photo-overlay"><!-- photo overlay -->

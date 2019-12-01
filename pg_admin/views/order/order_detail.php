@@ -35,16 +35,16 @@
 			  <th>Remark</th>
 			  <th>Quantity</th>
 			  <th>Unit Price</th>
-			  <th>Price</th>	
+			  <th>Price</th>
 		   </tr>
   	</thead>
-    
+
   	<tbody>
 	    <?php $count=1; foreach($data as $order_items): ?>
 	      <tr>
 	      	<td class="ky-no-tr"><?php echo $count++ ?></td>
 	      	<td>
-			  <img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php echo $order_items['item_code'].'_id_'.$order_items['item_id'].'_0'.'.jpg'?>" width="64px" height="64px">
+			  <img src="<?php echo $url_file ?>/pg_admin/item_gallary/<?php $name = get_item_photo($order_items['item_id']); echo $name['name']  ?>" width="64px" height="64px">
 			</td>
 			<td><?php echo $order_items['item_name']?></td>
 			<td><?php echo $order_items['remark']?></td>
